@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Header.css';
-import Color from '../Color/Color';
+import ColorPallete from '../ColorPallete/ColorPallete';
 
 class Header extends Component {
   
@@ -8,21 +8,18 @@ class Header extends Component {
     super(props);
     this.state = {
       colorArray : ['#FF7F00', '#00FF00', '#AAFFCC', '#0022EE'],
-      color: ''
     }
+    this.changeParentColor = this.changeParentColor.bind(this);
   }
   
   // this will change the parent app's color state 
-  changeColor(newColor) {
-    this.setState({
-      color: newColor
-    })
-    this.props.changeColor(this.state.color)
+  changeParentColor(newColor) {
+    this.props.changeColor(newColor);
   }
   render() {
     return(
       <div className="header">
-        <Color colorArray={this.state.colorArray} changeColor={this.props.changeColor} />
+        <ColorPallete colorArray={this.state.colorArray} changeColor={this.changeParentColor} />
       </div>
     )
   }

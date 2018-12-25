@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-import './Color-Items.css';
+import './Color-Item.css';
 
 class ColorItem extends Component { 
 
   constructor(props) {
     super(props);
     this.state = {
-      color: this.props.color
+      color: props.color
     } 
-    this.getColor = this.getColor.bind(this);
+    this.setColor = this.setColor.bind(this);
   }
 
-  getColor = () => {
+  setColor() {
     this.props.changeColor(this.state.color);
   }
    render() {
      return(
        <div>
-         <span className="color-item" style={{backgroundColor: this.state.color}} onClick={this.getColor}></span>
+         <span title="click to change drawer color" className="color-item" style={{backgroundColor: this.state.color}} onClick={this.setColor}></span>
       </div>
      )
    }

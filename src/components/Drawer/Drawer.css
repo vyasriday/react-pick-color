@@ -3,3 +3,10 @@
   flex: 1 auto;
 
 }
+
+h2 {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 200px;
+  
+}

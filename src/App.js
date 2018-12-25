@@ -8,11 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        color: ''
+        color: 'orangered'
     }
-    this.onDrawerColorChange = this.onDrawerColorChange.bind(this);
+    this.changeDrawerColor = this.changeDrawerColor.bind(this);
   }
-   onDrawerColorChange(newColor) {
+   changeDrawerColor(newColor) {
      this.setState({
        color: newColor
      })
@@ -21,12 +21,12 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-       <Header changeColor= {this.onDrawerColorChange}/>
+       <Header changeColor= {this.changeDrawerColor}/>
        <Drawer 
         drawerColor = {this.state.color} />
       </div>
     );
   }
-}
+} 
 
 export default App;
