@@ -1,0 +1,18 @@
+.dynamic-color-item-space {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.custom-color-item {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid;
+  margin: 0 0.3rem;
+}
+
+i {
+  color: gray;
+  margin-right: -1;
+}
