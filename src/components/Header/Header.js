@@ -36,9 +36,10 @@ class Header extends Component {
   }
 
   addNewColor(color) {
-    console.log(color);
+    // TODO: Don't manipulate state directly here
+    this.state.customColorArray.push(color)
     this.setState({
-      newColor: color
+      customColorArray: this.state.customColorArray
     })
   }
 
@@ -57,7 +58,8 @@ class Header extends Component {
         <CustomColorPallete 
           newColor={this.state.newColor} 
           customColorArray={this.state.customColorArray}
-          removeColorFromCustomArray = {this.removeColorFromCustomArray}  
+          removeColorFromCustomArray = {this.removeColorFromCustomArray}
+          changeColor = {this.changeParentColor}  
         />
         <span id="plus-icon" onClick={this.addFormComponent}><i className="fas fa-plus"></i> </span>
         {this.state.formVisible? <Form  removeForm={this.removeFormComponent} addNewColor = {this.addNewColor}/> : ''}

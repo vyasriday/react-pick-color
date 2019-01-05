@@ -7,7 +7,7 @@ export class CustomColorPallete extends React.Component {
   constructor(props) {
     super();
     this.removeColorFromCustomArray= this.removeColorFromCustomArray.bind(this);
-   
+    this.changeParentColor = this.changeParentColor.bind(this);
   }
 
   removeColorFromCustomArray(index) {
@@ -20,15 +20,20 @@ export class CustomColorPallete extends React.Component {
     })
   }
 
+  changeParentColor(newColor) {
+    this.props.changeColor(newColor);
+  }
+
   render() {
     const {customColorArray} = this.props;
     return(
       <div className="customColorPallete">
       {customColorArray.map((customColor, index) => <CustomColorItem 
         customColor = {customColor}
-        key={index} 
+        key={Math.random()*10} 
         index= {index}
         removeColorFromCustomArray={this.removeColorFromCustomArray}  
+        changeColor = {this.props.changeColor}
       /> )}
       </div>
     )

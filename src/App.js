@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        color: 'orangered'
+        color: ''
     }
     this.changeDrawerColor = this.changeDrawerColor.bind(this);
   }

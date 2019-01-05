@@ -11,8 +11,12 @@ export class CustomColorItem extends React.Component {
       index: props.index
     }
     this.removeColorItem = this.removeColorItem.bind(this);
+    this.setColor = this.setColor.bind(this);
   }
 
+  setColor() {
+    this.props.changeColor(this.state.color);
+  }
 
   removeColorItem() {
     this.setState({
@@ -26,8 +30,13 @@ export class CustomColorItem extends React.Component {
     return(
       this.state.isAvailable?
         <div className="dynamic-color-item-space">
-        <span onClick={this.removeColorItem}><i className="fas fa-times"></i></span>
-        <span title="click to change drawer color" className="custom-color-item" style={{backgroundColor: this.state.color}}></span> 
+        <span title="remove item" onClick={this.removeColorItem}><i className="fas fa-times"></i></span>
+        <span 
+          title="click to change drawer color" 
+          className="custom-color-item" 
+          style={{backgroundColor: this.state.color}}
+          onClick= {this.setColor}
+        ></span> 
       </div>: ''
       
       
