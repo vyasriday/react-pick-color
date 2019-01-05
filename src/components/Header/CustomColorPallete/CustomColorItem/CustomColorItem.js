@@ -7,18 +7,19 @@ export class CustomColorItem extends React.Component {
     super(props);
     this.state = {
       color: this.props.customColor,
-      isAvailable: true
+      isAvailable: true,
+      index: props.index
     }
     this.removeColorItem = this.removeColorItem.bind(this);
   }
 
 
-  removeColorItem(event) {
+  removeColorItem() {
     this.setState({
       isAvailable : false
     })
-    console.log(this.props.index);
-    this.props.removeColorItemFromColorArray(this.props.index);
+    // remove it from customColorArray in header using index of item
+    this.props.removeColorFromCustomArray(this.state.index)
   }
 
   render() {

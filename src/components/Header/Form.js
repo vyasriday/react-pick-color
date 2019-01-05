@@ -5,13 +5,16 @@ export class Form extends Component {
 
   state = {value: ''}
 
-  setColor = e => this.setState({value: e.target.value});
+  setColor = e => {
+    this.setState({value: e.target.value});
+  }
   
   submit = e => {
     e.preventDefault();
-    // Send the color value outide
+    this.props.addNewColor(this.state.value)
     this.props.removeForm();
   }
+
   render() {
     return (
       <div>

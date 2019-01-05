@@ -6,24 +6,29 @@ export class CustomColorPallete extends React.Component {
   
   constructor(props) {
     super();
-    this.state = {
-      customColorArray: []
-    }
-    this.changeCustomColorArray = this.changeCustomColorArray.bind(this);
+    this.removeColorFromCustomArray= this.removeColorFromCustomArray.bind(this);
+   
   }
 
-  changeCustomColorArray(index) {
-    console.log(this.state.customColorArray);
+  removeColorFromCustomArray(index) {
+    this.props.removeColorFromCustomArray(index);
+  }
+
+  addNewColorToArray() {
+    this.setState({
+      customColorArray: this.state.customColorArray.push(this.props.newColor)
+    })
   }
 
   render() {
+    const {customColorArray} = this.props;
     return(
       <div className="customColorPallete">
-      {this.state.customColorArray.map((customColor, index) => <CustomColorItem 
+      {customColorArray.map((customColor, index) => <CustomColorItem 
         customColor = {customColor}
         key={index} 
         index= {index}
-        removeColorItemFromColorArray={this.changeCustomColorArray}  
+        removeColorFromCustomArray={this.removeColorFromCustomArray}  
       /> )}
       </div>
     )
