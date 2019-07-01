@@ -4,18 +4,15 @@ import Drawer from './Drawer/Drawer';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: '',
-    };
-    this.changeDrawerColor = this.changeDrawerColor.bind(this);
-  }
-  changeDrawerColor(newColor) {
+  state = {
+    color: '',
+  };
+
+  changeDrawerColor = newColor => {
     this.setState({
       color: newColor,
     });
-  }
+  };
 
   render() {
     return (

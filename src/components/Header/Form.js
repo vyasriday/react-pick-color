@@ -1,33 +1,29 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import './Form.css';
 
-export class Form extends Component {
+const Form = ({ addNewColor, removeForm }) => {
+  const [value, setValue] = useState('');
 
-  state = {value: ''}
-
-  setColor = e => {
-    this.setState({value: e.target.value});
-  }
-  
-  submit = e => {
-    e.preventDefault();
-    this.props.addNewColor(this.state.value)
-    this.props.removeForm();
+  function onFormSubmit(event) {
+    event.preventDefault();
+    addNewColor(value);
+    removeForm();
   }
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.submit}>
-            <label>
-              <input 
-                type="color" 
-                onChange = {this.setColor} />
-            </label>
-            <button>Submit</button>
-        </form>
-      </div>
-    )
-  }
-}
+  return (
+    <div>
+      <form onSubmit={onFormSubmit}>
+        <label>
+          <input
+            type="color"
+            value={value}
+            onChange={event => setValue(event.target.value)}
+          />
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+};
 
+export default Form;

@@ -1,72 +1,67 @@
-import React, {Component} from 'react';
-import './Header.css';
+import React, { Component } from 'react';
 import ColorPallete from './ColorPallete/ColorPallete';
-import { CustomColorPallete } from './CustomColorPallete/CustomColorPallete';
-import {Form} from './Form';
+import CustomColorPallete from './CustomColorPallete/CustomColorPallete';
+import Form from './Form';
+import './Header.css';
+
 class Header extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state ={
-      formVisible: false,
-      customColorArray: []
-    }
-    this.changeParentColor = this.changeParentColor.bind(this);
-    this.addFormComponent = this.addFormComponent.bind(this);
-    this.removeFormComponent = this.removeFormComponent.bind(this);
-    this.addNewColor = this.addNewColor.bind(this);
-    this.removeColorFromCustomArray = this.removeColorFromCustomArray.bind(this);
-  }
+  state = {
+    formVisible: false,
+    customColorArray: [],
+  };
 
-  changeParentColor(newColor) {
+  changeParentColor = newColor => {
     this.props.changeColor(newColor);
-  }
+  };
 
-  addFormComponent() {
+  addFormComponent = () => {
     this.setState({
       formVisible: true,
-      newColor: ''
-    })
-  }
-
-  removeFormComponent() {
-    this.setState({
-      formVisible: false
-    })
-  }
-
-  addNewColor(color) {
-    // TODO: Don't manipulate state directly here
-    this.state.customColorArray.push(color)
-    this.setState({
-      customColorArray: this.state.customColorArray
-    })
-  }
-
-  removeColorFromCustomArray(index) {
-    let customArray = this.state.customColorArray.filter((el, i) => i !== index);
-    this.setState({
-      customColorArray: customArray
+      newColor: '',
     });
-    console.log('Custom Array', customArray);
-  }
+  };
+
+  removeFormComponent = () => {
+    this.setState({
+      formVisible: false,
+    });
+  };
+
+  addNewColor = color => {
+    this.setState({
+      customColorArray: [...this.state.customColorArray, color],
+    });
+  };
+
+  removeColorFromCustomArray = index => {
+    let customArray = this.state.customColorArray.filter(
+      (el, i) => i !== index,
+    );
+    this.setState({
+      customColorArray: customArray,
+    });
+  };
 
   render() {
-    return(
+    return (
       <div className="header">
         <ColorPallete changeColor={this.changeParentColor} />
-        <CustomColorPallete 
-          newColor={this.state.newColor} 
+        <CustomColorPallete
           customColorArray={this.state.customColorArray}
-          removeColorFromCustomArray = {this.removeColorFromCustomArray}
-          changeColor = {this.changeParentColor}  
+          removeColorFromCustomArray={this.removeColorFromCustomArray}
+          changeColor={this.changeParentColor}
         />
-        <span id="plus-icon" onClick={this.addFormComponent}><i className="fas fa-plus"></i> </span>
-        {this.state.formVisible? <Form  removeForm={this.removeFormComponent} addNewColor = {this.addNewColor}/> : ''}
-        
+        <span id="plus-icon" onClick={this.addFormComponent}>
+          <i className="fas fa-plus"></i>{' '}
+        </span>
+        {this.state.formVisible && (
+          <Form
+            removeForm={this.removeFormComponent}
+            addNewColor={this.addNewColor}
+          />
+        )}
       </div>
-
-    )
+    );
   }
 }
 
