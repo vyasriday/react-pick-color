@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import CanvasDraw from 'react-canvas-draw';
 import './Drawer.css';
 
-class Drawer extends Component {
-  render() {
-    return (
-      <section
-        className="drawer"
-        style={{ backgroundColor: this.props.drawerColor }}
-      >
-        <h2>Color Drawer</h2>
-      </section>
-    );
-  }
-}
+const Drawer = ({ drawerColor }) => {
+  return (
+    <section className="drawer" style={{ backgroundColor: drawerColor }}>
+      <CanvasDraw
+        style={{ width: '100%', height: '80%' }}
+        brushColor={drawerColor}
+        brushRadius={8}
+      />
+    </section>
+  );
+};
 
 export default Drawer;

@@ -5,7 +5,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    color: '',
+    color: '#ed8e0e',
   };
 
   changeDrawerColor = newColor => {
