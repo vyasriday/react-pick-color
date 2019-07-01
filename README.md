@@ -1,3 +1,5 @@
-# React Pick Color
+# Pick Color
 
-I did pick color as part of my learning of how state management works in react. The project does not use redux and helped me learn about changing states at nested levels.
+### Pick color is a react app that uses react's native state management and html5 canvas. The projets also implements react hooks wherever required.
+
+### The project is part of my learning process of react.js
