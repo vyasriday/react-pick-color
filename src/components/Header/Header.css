@@ -1,18 +1,17 @@
 .header {
   height: 80px;
-  box-shadow: 0px 4px 5px rgba(0,0,0, 0.4);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
 }
 
-#plus-icon:hover{
+#plus-icon:hover {
   cursor: pointer;
 }
 
 #plus-icon {
   margin-right: 10px;
+  margin-left: 16px;
 }

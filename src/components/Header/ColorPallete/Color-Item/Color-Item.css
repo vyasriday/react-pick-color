@@ -3,6 +3,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  border: 1px solid;
-  margin: 0 0.3rem;
+  border: none;
+  margin: 0 4px;
+  padding: 2px;
 }
